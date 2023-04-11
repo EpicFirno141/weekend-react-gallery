@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import GalleryItem from "./GalleryItem";
 
 function Gallery() {
     const [pictures, setPictures] = useState([]);
@@ -20,9 +21,10 @@ function Gallery() {
     return (
         <div id='gallery'>
             {pictures.map((picture) => (
-                <div>
-                    <img src={picture.path} className='picture' />
-                </div>
+                <GalleryItem 
+                    picture = {picture}
+                    fetchPictures = {fetchPictures}
+                />
             ))}
         </div>
     );
